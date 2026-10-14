@@ -1,10 +1,12 @@
 import React from "react"
+import ProfileCard from "../components/PortfolioDashboard"
+import OpenPositionsChart from "../components/OpenPositionCharts"
 
 export default function Home() {
     return (
-        <div>
-            <h1>Home</h1>
-            <p>Welcome to the Home page!</p>
-        </div>
+        <>
+            <ProfileCard/>
+            <OpenPositionsChart/>
+        </>
     )
 }
