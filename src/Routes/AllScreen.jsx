@@ -12,6 +12,7 @@ export default function AllScreen() {
             <Route path="/" element={<Staticlayout/>}>
                 <Route index element={<Home/>}/>
                 <Route path="/treasury" element={<Treasury/>}/>
+                <Route path="/managePosition" element={<ManagePosition/>}/>
             </Route>
         </Routes>
     )
