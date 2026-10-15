@@ -37,12 +37,11 @@ export default function PortfolioCard({
         </div>
       </div>
 
-      {/* Right side: Action Button */}
       <button 
         onClick={onButtonClick}
-        className="bg-violet-600 hover:bg-violet-700 text-white font-medium text-xs md:text-sm px-5 py-2.5 rounded-xl shadow-md shadow-violet-500/20 flex items-center gap-2 shrink-0 w-full md:w-auto justify-center"
+        className="bg-violet-600 hover:bg-violet-700 text-white font-medium text-xs md:text-sm px-5 py-1.5 rounded-full shadow-md shadow-violet-500/20 flex items-center gap-2 shrink-0 w-full md:w-auto justify-center"
       >
-        <Sparkles className="h-4 w-4 text-violet-200" />
+        <Sparkles className="h-4 w-4 text-amber-300" />
         {buttonText}
       </button>
 
