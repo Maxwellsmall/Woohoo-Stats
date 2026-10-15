@@ -10,7 +10,7 @@ export default function Header() {
   const tabs = [
     { name: "Overview", href: "/" },
     { name: "Treasury", href: "/treasury" },
-    { name: "Manage Positions", href: "/manage-positions" },
+    { name: "Manage Positions", href: "/managePosition" },
     { name: "Reports", href: "/reports" },
     { name: "Analysis", href: "/analysis" },
     { name: "Assets", href: "/assets" },
@@ -46,7 +46,7 @@ export default function Header() {
           return (
             <Link
               key={tab.name}
-              href={tab.href}
+              to={tab.href}
               onClick={() => setActiveTab(tab.name)}
               className={`font-medium text-xs px-4 py-2 rounded-full transition-all ${
                 isActive

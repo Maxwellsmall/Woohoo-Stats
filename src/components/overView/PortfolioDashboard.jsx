@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import PortfolioCard from '../components/PortfolioCard';
-import MetricCard from '../components/MetricCard';
+import PortfolioCard from './PortfolioCard';
+import MetricCard from './MetricCard';
 import { Link } from 'react-router-dom';
 
 

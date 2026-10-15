@@ -1,7 +1,7 @@
 
-import TreasuryHealthCard from '../components/TreasuryHealthCard';
-import AssetClassBreakdownCard from '../components/AssetClassBreakdownCard';
-import RecentActivityCard from '../components/RecentActivityCard';
+import TreasuryHealthCard from "../overView/TreasuryHealthCard";
+import AssetClassBreakdownCard from '../overView/AssetClassBreakdownCard';
+import RecentActivityCard from '../overView/RecentActivityCard';
 
 
 export default function TreasuryOverviewGrid() {
