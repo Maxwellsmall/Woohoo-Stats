@@ -1,7 +1,7 @@
 import React from "react"
-import ProfileCard from "../components/PortfolioDashboard"
-import OpenPositionsChart from "../components/OpenPositionCharts"
-import TreasuryOverviewGrid from "../components/TreasuryOverviewGrid"
+import ProfileCard from "../components/overView/PortfolioDashboard"
+import OpenPositionsChart from "../components/overView/OpenPositionCharts"
+import TreasuryOverviewGrid from "../components/overView/TreasuryOverviewGrid"
 
 export default function Home() {
     return (

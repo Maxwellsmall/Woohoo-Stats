@@ -3,7 +3,7 @@ import React from 'react';
 export default function MetricCard({
   title,
   badgeText,
-  badgeType = 'positive', // 'positive' | 'info'
+  badgeType = 'positive', 
   mainValue,
   description,
   bottomLeftLabel,
@@ -15,7 +15,6 @@ export default function MetricCard({
 }) {
   return (
     <div className="w-full bg-white rounded-[24px] border border-violet-100/80 p-6 shadow-sm flex flex-col justify-between">
-      {/* Top Header Row */}
       <div>
         <div className="flex justify-between items-center mb-3">
           <span className="text-xs font-bold text-zinc-400 tracking-wider uppercase">
@@ -35,20 +34,16 @@ export default function MetricCard({
           )}
         </div>
 
-        {/* Main Stat Value */}
         <div className="text-3xl font-extrabold text-zinc-900 mb-2 font-mono tracking-tight">
           {mainValue}
         </div>
 
-        {/* Description Text */}
         <p className="text-xs md:text-sm text-zinc-500 font-medium leading-relaxed mb-6">
           {description}
         </p>
       </div>
 
-      {/* Bottom Sub-stats Row */}
       <div className="pt-4 border-t border-violet-100/60 grid grid-cols-2 gap-4">
-        {/* Bottom Left Box */}
         {bottomLeftValue && (
           <div className="bg-violet-50/50 rounded-2xl p-3.5 border border-violet-100/60">
             <div className="text-lg font-bold text-violet-700 font-mono">
@@ -60,7 +55,6 @@ export default function MetricCard({
           </div>
         )}
 
-        {/* Bottom Right Box */}
         {bottomRightValue && (
           <div className="bg-zinc-50/80 rounded-2xl p-3.5 border border-zinc-100 flex items-center justify-between">
             <div>

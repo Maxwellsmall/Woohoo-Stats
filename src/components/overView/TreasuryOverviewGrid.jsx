@@ -1,7 +1,7 @@
 
-import TreasuryHealthCard from '../components/TreasuryHealthCard';
-import AssetClassBreakdownCard from '../components/AssetClassBreakdownCard';
-import RecentActivityCard from '../components/RecentActivityCard';
+import TreasuryHealthCard from "../overView/TreasuryHealthCard";
+import AssetClassBreakdownCard from '../overView/AssetClassBreakdownCard';
+import RecentActivityCard from '../overView/RecentActivityCard';
 
 
 export default function TreasuryOverviewGrid() {
@@ -15,7 +15,6 @@ export default function TreasuryOverviewGrid() {
           operationalRunway="43.5 months"
           multisigThreshold="3 / 5 Signers"
           buttonText="Explore Treasury Breakdown"
-          onButtonClick={() => alert("Exploring Treasury...")}
         />
         <AssetClassBreakdownCard 
     onButtonClick={() => alert("Managing Assets...")}
