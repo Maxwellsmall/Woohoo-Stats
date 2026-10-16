@@ -1,5 +1,6 @@
 import React from 'react';
 import { Clock, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function AssetClassBreakdownCard({
   title = "Asset Class Breakdown",
@@ -11,8 +12,14 @@ export default function AssetClassBreakdownCard({
     { name: "Strategic DAO Tokens & Staking", percentage: 7.5, color: "bg-amber-500", textColor: "text-amber-600" },
   ],
   buttonText = "Manage Supported Assets",
-  onButtonClick
 }) {
+
+  const navigate = useNavigate()
+
+  const handleJump = () => {
+    navigate("/treasury#gnosis-section")
+  }
+
   return (
     <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col justify-between h-full">
       <div>
@@ -46,8 +53,8 @@ export default function AssetClassBreakdownCard({
 
       <div className="mt-6">
         <button
-          onClick={onButtonClick}
-          className="w-full py-3 px-4 rounded-xl bg-violet-50/70 hover:bg-violet-100 text-violet-600 font-medium text-sm flex items-center justify-center gap-1 transition-colors"
+        onClick={handleJump}
+          className="w-full py-3 px-4 rounded-xl bg-violet-50/70 hover:bg-violet-600 hover:text-white text-violet-600 font-medium text-sm flex items-center justify-center gap-1 transition-colors"
         >
           {buttonText}
           <ChevronRight className="w-4 h-4" />
