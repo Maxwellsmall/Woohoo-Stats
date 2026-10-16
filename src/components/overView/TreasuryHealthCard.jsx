@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function TreasuryHealthCard({
   title = "Treasury Reserve Health",
@@ -9,8 +10,14 @@ export default function TreasuryHealthCard({
   operationalRunway = "43.5 months",
   multisigThreshold = "3 / 5 Signers",
   buttonText = "Explore Treasury Breakdown",
-  onButtonClick
 }) {
+const navigate = useNavigate()
+
+const handleJump = () => {
+  navigate("/treasury#gnosis-section")
+}
+
+
   return (
     <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col justify-between h-full">
       <div>
@@ -51,8 +58,8 @@ export default function TreasuryHealthCard({
 
       <div className="mt-6">
         <button
-          onClick={onButtonClick}
-          className="w-full py-3 px-4 rounded-xl bg-indigo-50/70 hover:bg-indigo-100 text-indigo-600 font-medium text-sm flex items-center justify-center gap-1 transition-colors"
+        onClick={handleJump}
+          className="w-full py-3 px-4 rounded-xl bg-indigo-50/70 hover:bg-violet-600 hover:text-white text-indigo-600 font-medium text-sm flex items-center justify-center gap-1 transition-colors"
         >
           {buttonText}
           <ChevronRight className="w-4 h-4" />

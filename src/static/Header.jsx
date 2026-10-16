@@ -1,11 +1,14 @@
 import React from 'react';
-// import Image from 'next/image';
 import Logo from "../../public/logo/logo.png";
 import { Bell } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Header() {
     const [activeTab, setActiveTab] = React.useState("Overview")
+
+    const location = useLocation()
+
+    const currentBasePath = location.pathname.split('#')[0]; 
     
   const tabs = [
     { name: "Overview", href: "/" },
@@ -18,7 +21,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="flex items-center justify-between bg-white px-6 py-3 border-b border-zinc-200 w-full">
+    <header className=" sticky top-0 z-10 flex items-center justify-between bg-white px-6 py-3 border-b border-zinc-200 w-full">
       
       <div className="flex items-center space-x-3">
         <div className="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center shrink-0">
@@ -41,7 +44,10 @@ export default function Header() {
 
      <nav className="flex items-center bg-violet-50/60 border border-violet-100/80 rounded-full p-1.5 space-x-1 shadow-sm">
         {tabs.map((tab) => {
-          const isActive = activeTab === tab.name;
+          const isActive = activeTab === 
+              tab.href === "/"
+              ? currentBasePath === "/" || currentBasePath === ''
+              : currentBasePath === tab.href
 
           return (
             <Link
