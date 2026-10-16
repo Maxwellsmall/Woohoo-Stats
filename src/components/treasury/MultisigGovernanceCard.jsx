@@ -11,9 +11,8 @@ export default function MultisigGovernanceCard() {
   ];
 
   return (
-    <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100">
+    <div id='gnosis-section' className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100">
       
-      {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-3">
         <div className="flex items-center gap-3">
           <div className="p-2 rounded-xl bg-violet-50 text-violet-600">
@@ -31,7 +30,6 @@ export default function MultisigGovernanceCard() {
         </div>
       </div>
 
-      {/* Table */}
       <div className="border border-slate-100 rounded-2xl overflow-hidden">
         <table className="w-full text-left border-collapse">
           <thead>
