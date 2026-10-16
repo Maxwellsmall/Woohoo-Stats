@@ -17,7 +17,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="flex items-center justify-between bg-white px-6 py-3 border-b border-zinc-200 w-full">
+    <header className=" sticky top-0 flex items-center justify-between bg-white px-6 py-3 border-b border-zinc-200 w-full">
       
       <div className="flex items-center space-x-3">
         <div className="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center shrink-0">
