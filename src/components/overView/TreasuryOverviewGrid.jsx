@@ -15,7 +15,6 @@ export default function TreasuryOverviewGrid() {
           operationalRunway="43.5 months"
           multisigThreshold="3 / 5 Signers"
           buttonText="Explore Treasury Breakdown"
-          onButtonClick={() => alert("Exploring Treasury...")}
         />
         <AssetClassBreakdownCard 
     onButtonClick={() => alert("Managing Assets...")}
