@@ -5,7 +5,7 @@ import TreasuryOverviewGrid from "../components/overView/TreasuryOverviewGrid"
 
 export default function Home() {
     return (
-        <div className="max-w-7xl bg-slate-50 sm:px-6 lg:px-8">
+        <div className="max-w-7xl bg-slate-50 dark:bg-slate-950 sm:px-6 lg:px-8">
             <ProfileCard/>
             <OpenPositionsChart/>
             <TreasuryOverviewGrid/>

@@ -38,26 +38,30 @@ export default function AnalysisView() {
   const currentData = chartData[timeRange];
 
   return (
-    <div className="p-6 md:p-10 bg-slate-50 min-h-screen space-y-8 max-w-7xl mx-auto">
+    <div className="p-6 md:p-10 bg-slate-50 dark:bg-slate-950 min-h-screen space-y-8 max-w-7xl mx-auto transition-colors">
       
+      {/* Top Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-extrabold text-zinc-900 tracking-tight">Treasury Analytics & Yield Performance</h1>
-            <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-violet-100 text-violet-700">Quant Feed</span>
+            <h1 className="text-2xl font-extrabold text-zinc-900 dark:text-white tracking-tight">Treasury Analytics & Yield Performance</h1>
+            <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-violet-100 dark:bg-violet-950/60 text-violet-700 dark:text-violet-300 border border-violet-200/50 dark:border-violet-800/50">
+              Quant Feed
+            </span>
           </div>
-          <p className="text-xs text-zinc-400 mt-1">Quantitative metrics, historical portfolio trajectories, and yield analysis</p>
+          <p className="text-xs text-zinc-400 dark:text-slate-400 mt-1">Quantitative metrics, historical portfolio trajectories, and yield analysis</p>
         </div>
 
-        <div className="flex items-center bg-white p-1.5 rounded-2xl shadow-sm border border-slate-100 gap-1">
+        {/* Time-Range Selector Buttons */}
+        <div className="flex items-center bg-white dark:bg-slate-900 p-1.5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 gap-1">
           {["7D", "30D", "90D", "1Y"].map((range) => (
             <button
               key={range}
               onClick={() => setTimeRange(range)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 timeRange === range
                   ? "bg-violet-600 text-white shadow-sm"
-                  : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
+                  : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800"
               }`}
             >
               {range}
@@ -66,38 +70,40 @@ export default function AnalysisView() {
         </div>
       </div>
 
-      <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100 space-y-6">
+      {/* Main Chart Card */}
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100 dark:border-slate-800 space-y-6">
         
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">TREASURY VALUE OVER TIME</span>
+            <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">TREASURY VALUE OVER TIME</span>
             <div className="flex items-center gap-3 mt-1.5">
-              <h2 className="text-3xl font-black text-slate-900">{currentData.value}</h2>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-600">
+              <h2 className="text-3xl font-black text-slate-900 dark:text-white">{currentData.value}</h2>
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50">
                 <TrendingUp className="w-3.5 h-3.5" />
                 {currentData.change}
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
-            <span className="w-2.5 h-2.5 rounded-full bg-violet-600"></span>
+          <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
+            <span className="w-2.5 h-2.5 rounded-full bg-violet-600 dark:bg-violet-500"></span>
             <span>Treasury Value (USD)</span>
           </div>
         </div>
 
+        {/* SVG Area Chart */}
         <div className="relative w-full h-72 pt-4">
           <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
-            <div className="w-full border-b border-dashed border-slate-100"></div>
-            <div className="w-full border-b border-dashed border-slate-100"></div>
-            <div className="w-full border-b border-dashed border-slate-100"></div>
+            <div className="w-full border-b border-dashed border-slate-100 dark:border-slate-800"></div>
+            <div className="w-full border-b border-dashed border-slate-100 dark:border-slate-800"></div>
+            <div className="w-full border-b border-dashed border-slate-100 dark:border-slate-800"></div>
           </div>
 
           <svg viewBox="0 0 900 220" className="w-full h-full overflow-visible">
             <defs>
               <linearGradient id="purpleGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.25" />
-                <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.0" />
+                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.35" />
+                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.0" />
               </linearGradient>
             </defs>
 
@@ -110,7 +116,7 @@ export default function AnalysisView() {
             <path
               d={currentData.line}
               fill="none"
-              stroke="#7c3aed"
+              stroke="#8b5cf6"
               strokeWidth="3.5"
               strokeLinecap="round"
               className="transition-all duration-500"
@@ -118,22 +124,25 @@ export default function AnalysisView() {
           </svg>
         </div>
 
-        <div className="flex justify-between items-center text-[11px] font-bold text-slate-400 pt-3 border-t border-slate-50">
+        <div className="flex justify-between items-center text-[11px] font-bold text-slate-400 dark:text-slate-500 pt-3 border-t border-slate-50 dark:border-slate-800">
           {currentData.labels.map((label, idx) => (
             <span key={idx}>{label}</span>
           ))}
         </div>
 
       </div>
+
+      {/* Grid: Harvest History & Risk Indicators */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
-        <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100 space-y-6">
+        {/* Monthly Yield Harvest History Card */}
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100 dark:border-slate-800 space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-extrabold text-slate-900 tracking-tight">Monthly Yield Harvest History</h3>
-              <p className="text-xs text-slate-400 mt-0.5">Total yield realized across all vaults</p>
+              <h3 className="text-base font-extrabold text-slate-900 dark:text-white tracking-tight">Monthly Yield Harvest History</h3>
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">Total yield realized across all vaults</p>
             </div>
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-600">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50">
               +171.2k total (6 mo)
             </span>
           </div>
@@ -149,13 +158,13 @@ export default function AnalysisView() {
             ].map((item, idx) => (
               <div key={idx} className="space-y-1.5">
                 <div className="flex justify-between text-xs font-semibold">
-                  <span className="text-slate-700">{item.month}</span>
+                  <span className="text-slate-700 dark:text-slate-300">{item.month}</span>
                   <div className="space-x-2">
-                    <span className="font-bold text-slate-900">{item.amount}</span>
-                    <span className="text-[11px] text-slate-400">({item.apr})</span>
+                    <span className="font-bold text-slate-900 dark:text-white">{item.amount}</span>
+                    <span className="text-[11px] text-slate-400 dark:text-slate-500">({item.apr})</span>
                   </div>
                 </div>
-                <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                   <div className={`h-full bg-gradient-to-r from-violet-600 via-indigo-500 to-amber-400 rounded-full ${item.width}`}></div>
                 </div>
               </div>
@@ -163,47 +172,48 @@ export default function AnalysisView() {
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100 space-y-6 flex flex-col justify-between">
+        {/* Risk & Performance Indicators Card */}
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100 dark:border-slate-800 space-y-6 flex flex-col justify-between">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-extrabold text-slate-900 tracking-tight">Risk & Performance Indicators</h3>
-              <p className="text-xs text-slate-400 mt-0.5">Volatility, drawdown & audit exposure</p>
+              <h3 className="text-base font-extrabold text-slate-900 dark:text-white tracking-tight">Risk & Performance Indicators</h3>
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">Volatility, drawdown & audit exposure</p>
             </div>
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-600 border border-emerald-200/50">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50">
               Low Risk Score
             </span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             
-            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100/80">
-              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Sharpe Ratio</span>
-              <h4 className="text-xl font-black text-slate-900 mt-1">3.42</h4>
-              <p className="text-[11px] text-emerald-600 font-semibold mt-1">Top 5% Web3 benchmark</p>
+            <div className="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-4 border border-slate-100/80 dark:border-slate-800">
+              <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Sharpe Ratio</span>
+              <h4 className="text-xl font-black text-slate-900 dark:text-white mt-1">3.42</h4>
+              <p className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold mt-1">Top 5% Web3 benchmark</p>
             </div>
 
-            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100/80">
-              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Max Historical Drawdown</span>
-              <h4 className="text-xl font-black text-rose-600 mt-1">-1.84%</h4>
-              <p className="text-[11px] text-slate-400 mt-1">Protected by stable LP</p>
+            <div className="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-4 border border-slate-100/80 dark:border-slate-800">
+              <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Max Historical Drawdown</span>
+              <h4 className="text-xl font-black text-rose-600 dark:text-rose-400 mt-1">-1.84%</h4>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1">Protected by stable LP</p>
             </div>
 
-            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100/80">
-              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Audited TVL Coverage</span>
-              <h4 className="text-xl font-black text-emerald-600 mt-1">100%</h4>
-              <p className="text-[11px] text-slate-400 mt-1">CertiK / OpenZeppelin</p>
+            <div className="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-4 border border-slate-100/80 dark:border-slate-800">
+              <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Audited TVL Coverage</span>
+              <h4 className="text-xl font-black text-emerald-600 dark:text-emerald-400 mt-1">100%</h4>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1">CertiK / OpenZeppelin</p>
             </div>
 
-            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100/80">
-              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Impermanent Loss Risk</span>
-              <h4 className="text-xl font-black text-slate-900 mt-1">0.12%</h4>
-              <p className="text-[11px] text-emerald-600 font-semibold mt-1">Pegged asset pairs</p>
+            <div className="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-4 border border-slate-100/80 dark:border-slate-800">
+              <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Impermanent Loss Risk</span>
+              <h4 className="text-xl font-black text-slate-900 dark:text-white mt-1">0.12%</h4>
+              <p className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold mt-1">Pegged asset pairs</p>
             </div>
 
           </div>
 
-          <div className="bg-violet-50/70 border border-violet-100 rounded-2xl p-4 text-xs text-slate-600 leading-relaxed">
-            <span className="font-bold text-violet-700">Yield Engine Note:</span> The treasury portfolio operates with a 72% allocation to stablecoin or delta-neutral fixed income, ensuring that the 19.2% APR generates real capital growth without exposure to broader market volatility.
+          <div className="bg-violet-50/70 dark:bg-violet-950/40 border border-violet-100 dark:border-violet-900/50 rounded-2xl p-4 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <span className="font-bold text-violet-700 dark:text-violet-300">Yield Engine Note:</span> The treasury portfolio operates with a 72% allocation to stablecoin or delta-neutral fixed income, ensuring that the 19.2% APR generates real capital growth without exposure to broader market volatility.
           </div>
 
         </div>
