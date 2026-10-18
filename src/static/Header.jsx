@@ -13,12 +13,12 @@ export default function Header() {
     
     const tabs = [
       { name: "Overview", href: "/" },
-      { name: "Treasury", href: "/treasury" },
-      { name: "Manage Positions", href: "/managePosition" },
+      // { name: "Treasury", href: "/treasury" },
+      // { name: "Manage Positions", href: "/managePosition" },
       { name: "Reports", href: "/reports" },
       { name: "Analysis", href: "/analysis" },
-      { name: "Assets", href: "/assets" },
-      { name: "Settings", href: "/settings" },
+      // { name: "Assets", href: "/assets" },
+      // { name: "Settings", href: "/settings" },
     ];
 
   return (
