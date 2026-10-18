@@ -13,30 +13,30 @@ export default function Header() {
     
     const tabs = [
       { name: "Overview", href: "/" },
-      { name: "Treasury", href: "/treasury" },
-      { name: "Manage Positions", href: "/managePosition" },
+      // { name: "Treasury", href: "/treasury" },
+      // { name: "Manage Positions", href: "/managePosition" },
       { name: "Reports", href: "/reports" },
       { name: "Analysis", href: "/analysis" },
-      { name: "Assets", href: "/assets" },
-      { name: "Settings", href: "/settings" },
+      // { name: "Assets", href: "/assets" },
+      // { name: "Settings", href: "/settings" },
     ];
 
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between bg-white dark:bg-slate-900 px-4 md:px-6 py-3 border-b border-zinc-200 dark:border-slate-800 w-full transition-colors">
+    <header className="sticky top-0 z-50 flex items-center justify-between bg-white dark:bg-slate-900 px-3 sm:px-4 md:px-6 py-3 border-b border-zinc-200 dark:border-slate-800 w-full transition-colors">
       
       {/* Logo & Title */}
-      <div className="flex items-center space-x-3">
-        <div className="h-9 w-9 md:h-10 md:w-10 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-zinc-200 dark:border-slate-700">
+      <div className="flex items-center space-x-2.5 sm:space-x-3">
+        <div className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-zinc-200 dark:border-slate-700">
           <img src={Logo} alt="Logo" className="h-full w-full object-cover" />
         </div>
         
         <div className="flex flex-col">
-          <div className="flex items-center space-x-2">
-            <div className="flex items-center space-x-1 font-extrabold text-base md:text-[17px] tracking-tight">
+          <div className="flex items-center space-x-1.5 sm:space-x-2">
+            <div className="flex items-center space-x-1 font-extrabold text-sm sm:text-base md:text-[17px] tracking-tight">
               <span className="text-violet-600 dark:text-violet-400">Woohoo</span>
               <span className="text-zinc-900 dark:text-white">Stats</span>
             </div>
-            <span className="bg-violet-100 dark:bg-violet-950/80 text-violet-700 dark:text-violet-300 text-[10px] md:text-[11px] font-semibold px-1.5 py-0.5 rounded-md border border-violet-200/50 dark:border-violet-800/50">
+            <span className="bg-violet-100 dark:bg-violet-950/80 text-violet-700 dark:text-violet-300 text-[9px] sm:text-[10px] md:text-[11px] font-semibold px-1.5 py-0.5 rounded-md border border-violet-200/50 dark:border-violet-800/50">
               DeFi
             </span>
           </div>
@@ -70,30 +70,31 @@ export default function Header() {
       </nav>
 
       {/* Right Controls */}
-      <div className="flex items-center space-x-2 md:space-x-3">
-        {/* Theme Toggle Button */}
+      <div className="flex items-center space-x-1.5 sm:space-x-2 md:space-x-3">
+        
+        {/* Theme Toggle Button (Visible on all screens) */}
         <button
           onClick={toggleTheme}
-          className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700 hover:scale-105 transition-all cursor-pointer"
+          className="p-2 sm:p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700 hover:scale-105 transition-all cursor-pointer"
           aria-label="Toggle Theme"
         >
           {theme === 'dark' ? (
-            <Sun className="w-4 h-4 text-amber-400" />
+            <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
           ) : (
-            <Moon className="w-4 h-4 text-slate-600" />
+            <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-600" />
           )}
         </button>
 
         {/* Notifications Bell */}
-        <button className="relative p-2 md:p-2.5 rounded-full border border-zinc-200 dark:border-slate-700 text-zinc-600 dark:text-slate-300 hover:bg-zinc-50 dark:hover:bg-slate-800 transition-colors">
-          <Bell className="h-4 w-4" />
-          <span className="absolute -top-1 -right-1 bg-amber-400 text-zinc-900 font-bold text-[10px] h-4 w-4 rounded-full flex items-center justify-center shadow-xs">
+        <button className="relative p-2 sm:p-2.5 rounded-full border border-zinc-200 dark:border-slate-700 text-zinc-600 dark:text-slate-300 hover:bg-zinc-50 dark:hover:bg-slate-800 transition-colors">
+          <Bell className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+          <span className="absolute -top-1 -right-1 bg-amber-400 text-zinc-900 font-bold text-[9px] sm:text-[10px] h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full flex items-center justify-center shadow-xs">
             2
           </span>
         </button>
 
-        {/* Safe 3 Profile Badge */}
-        <div className="hidden sm:flex items-center space-x-2 bg-violet-50/60 dark:bg-slate-800/60 border border-violet-100/80 dark:border-slate-700/80 rounded-full py-1.5 px-3">
+        {/* Safe 3 Profile Badge (Hidden on mobile screens to save space) */}
+        <div className="hidden md:flex items-center space-x-2 bg-violet-50/60 dark:bg-slate-800/60 border border-violet-100/80 dark:border-slate-700/80 rounded-full py-1.5 px-3">
           <div className="h-6 w-6 rounded-full overflow-hidden flex items-center justify-center shrink-0">
             <img src={Logo} alt="Profile" className="h-full w-full object-cover" />
           </div>
